@@ -1,6 +1,8 @@
 <html>
 <script src="calculator.js"></script>
+<script src="breadcrumbGenerator.js"></script>
 <script>
+
     function calculator() {
         let resultSpan = document.querySelector('#calculatorResult');
         try{
@@ -11,6 +13,17 @@
         }catch(e){
             resultSpan.textContent = e;
         }
+    }
+    function breadcrumbGenerator(){
+        let resultSpan = document.querySelector('#breadcrumbResult');
+        try{
+            let breadcrumbUrl = document.querySelector('#breadcrumbUrl').value;
+            var result = generateBC(breadcrumbUrl,' : ');
+            resultSpan.textContent = result;
+        }catch(e){
+            resultSpan.textContent = e;
+        }
+
     }
 </script>
 
@@ -23,6 +36,15 @@
         <br />
         <button type="button" onclick="calculator()">Calculate</button>
     </div>
+    <div>
+        <h3>Breadcrumb Generator</h3>
+        <input placeholder="url" id="breadcrumbUrl" />
+        <br />
+        Result : <span id="breadcrumbResult"></span>
+        <br />
+        <button type="button" onclick="breadcrumbGenerator()">Create</button>
+    </div>
+
 </body>
 
 </html>
