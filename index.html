@@ -1,0 +1,28 @@
+<html>
+<script src="calculator.js"></script>
+<script>
+    function calculator() {
+        let resultSpan = document.querySelector('#calculatorResult');
+        try{
+            let calculatorExpression = document.querySelector('#calculatorExpression').value;
+            let calculator = new Calculator();
+            let result = calculator.evaluate(calculatorExpression);
+            resultSpan.textContent = result;
+        }catch(e){
+            resultSpan.textContent = e;
+        }
+    }
+</script>
+
+<body>
+    <div>
+        <h3>Calculator</h3>
+        <input placeholder="expression" id="calculatorExpression" />
+        <br />
+        Result : <span id="calculatorResult"></span>
+        <br />
+        <button type="button" onclick="calculator()">Calculate</button>
+    </div>
+</body>
+
+</html>
