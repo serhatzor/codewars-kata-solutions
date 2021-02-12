@@ -1,3 +1,8 @@
+/*
+Problem URL
+https://www.codewars.com/kata/52423db9add6f6fc39000354
+*/
+
 function getGeneration(cells, generations) {
     let nextGeneration = deepCopy(cells);
     for (let g = 0; g < generations; g++) {
