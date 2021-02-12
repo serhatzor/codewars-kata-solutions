@@ -1,29 +1,56 @@
 <html>
 <script src="calculator.js"></script>
 <script src="breadcrumbGenerator.js"></script>
+<script src="nextSmallerWithSameDigits.js"></script>
+<script src="conwayGame.js"></script>
 <script>
-
     function calculator() {
         let resultSpan = document.querySelector('#calculatorResult');
-        try{
+        try {
             let calculatorExpression = document.querySelector('#calculatorExpression').value;
             let calculator = new Calculator();
             let result = calculator.evaluate(calculatorExpression);
             resultSpan.textContent = result;
-        }catch(e){
+        } catch (e) {
             resultSpan.textContent = e;
         }
     }
-    function breadcrumbGenerator(){
+    function breadcrumbGenerator() {
         let resultSpan = document.querySelector('#breadcrumbResult');
-        try{
+        try {
             let breadcrumbUrl = document.querySelector('#breadcrumbUrl').value;
-            var result = generateBC(breadcrumbUrl,' : ');
+            var result = generateBC(breadcrumbUrl, ' : ');
             resultSpan.textContent = result;
-        }catch(e){
+        } catch (e) {
             resultSpan.textContent = e;
         }
 
+    }
+    function nextSmallerWithSameDigits() {
+        let resultSpan = document.querySelector('#nextSmallerDigitsResult');
+        try {
+            let digits = document.querySelector('#nextSmallerDigits').value;
+            var result = nextSmaller(+digits);
+            resultSpan.textContent = result;
+        } catch (e) {
+            resultSpan.textContent = e;
+        }
+
+    }
+
+    function conwayGame(){
+        let resultSpan = document.querySelector('#conwayGameResult');
+        try {
+            let firstGeneration = JSON.parse(document.querySelector('#conwayGameArray').value);
+            let generationCount = document.querySelector('#generationCount').value;
+            var result = getGeneration(firstGeneration,generationCount);
+            for(let i=0;i<result.length;i++){
+                resultSpan.innerHTML += "<br/>" +result[i];
+            }
+            
+        } catch (e) {
+            resultSpan.textContent = e;
+        }
     }
 </script>
 
@@ -44,6 +71,25 @@
         <br />
         <button type="button" onclick="breadcrumbGenerator()">Create</button>
     </div>
+    <div>
+        <h3>Next Smaller With Same Digits</h3>
+        <input placeholder="number" id="nextSmallerDigits" />
+        <br />
+        Result : <span id="nextSmallerDigitsResult"></span>
+        <br />
+        <button type="button" onclick="nextSmallerWithSameDigits()">Find</button>
+    </div>
+    <div>
+        <h3>Conway's Game of Life - Unlimited Edition</h3>
+        <input placeholder="First Generation" id="conwayGameArray" />
+        <br />
+        <input placeholder="Generation Count" id="generationCount" />
+        <br />
+        Result : <span id="conwayGameResult"></span>
+        <br />
+        <button type="button" onclick="conwayGame()">Play</button>
+    </div>
+
 
 </body>
 

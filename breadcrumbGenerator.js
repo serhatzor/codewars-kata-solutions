@@ -1,3 +1,7 @@
+/*
+Problem URL
+https://www.codewars.com/kata/563fbac924106b8bf7000046
+*/
 const invalidShortList = [
     "the",
     "of",
