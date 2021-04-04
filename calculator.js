@@ -1,6 +1,8 @@
 /*
 Problem URL
 https://www.codewars.com/kata/5235c913397cbf2508000048
+
+https://www.codewars.com/kata/52a78825cdfc2cfc87000005
 */
 
 const Calculator = function () {
@@ -38,6 +40,7 @@ function lexialParserForMath(string) {
       proceedValue = proceedValue + currentChar;
       if (i === proceedExpression.length - 1) {
         lexials.push(getMultipiedNumber(proceedValue));
+
       }
     }
   }
